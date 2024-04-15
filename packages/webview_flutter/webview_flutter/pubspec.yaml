@@ -8,13 +8,13 @@ environment:
   sdk: ^3.2.3
   flutter: ">=3.16.6"
 
-flutter:
-  plugin:
-    platforms:
-      android:
-        default_package: ./webview_flutter_android
-      ios:
-        default_package: ./webview_flutter_wkwebview
+#flutter:
+#  plugin:
+#    platforms:
+#      android:
+#        default_package: ./webview_flutter_android
+#      ios:
+#        default_package: ./webview_flutter_wkwebview
 
 dependencies:
   flutter:
