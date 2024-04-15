@@ -152,7 +152,7 @@ class WebKitWebViewController extends PlatformWebViewController {
         NSKeyValueObservingOptions.newValue,
       },
     );
-
+    _webView.setInspectable(true);
     _webView.addObserver(
       _webView,
       keyPath: 'URL',
