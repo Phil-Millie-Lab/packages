@@ -189,6 +189,20 @@
                                                   }];
 }
 
+- (void)webView:(WKWebView *)webView runOpenPanelWithParameters:(WKOpenPanelParameters *)parameters initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(NSArray<NSURL *> * _Nullable))completionHandler {
+    NSOpenPanel *openPanel = [NSOpenPanel openPanel];
+    openPanel.canChooseFiles = YES;
+    [openPanel beginWithCompletionHandler:^(NSInteger result) {
+        if (result == NSModalResponseOK) {
+            if (openPanel.URL) {
+                completionHandler(@[openPanel.URL]);
+            }
+        } else if (result == NSModalResponseCancel) {
+            completionHandler(nil);
+        }
+    }];
+}
+
 - (void)webView:(WKWebView *)webView
     runJavaScriptAlertPanelWithMessage:(NSString *)message
                       initiatedByFrame:(WKFrameInfo *)frame
